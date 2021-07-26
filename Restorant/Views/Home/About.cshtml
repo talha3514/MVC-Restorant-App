@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<style>
+    .con {
+        background-image: url(/Resimler/bg3.jpg);
+        overflow: hidden;
+        height: 700px;
+        max-width: 1440px;
+        margin-top:50px;
+        margin-right: auto;
+        margin-left: auto;
+        background-position: 50% 60%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .rich-text-block {
+        margin-right:0;
+        padding: 40px 60px;
+        background-color: hsla(0, 0%, 100%, 0.80);
+        font-family: Poppins, sans-serif;
+        color: #000;
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 500;
+        width:100%;
+    }
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+
+    .menu {
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+        top: 40%;
+        text-align: right;
+        margin-right: 25px;
+        opacity: 1;
+    }
+
+    .content {
+        margin-top: 10px;
+    }
+
+        .content span {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .content:hover span {
+            opacity: 1;
+        }
+
+        .content img {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            transition: transform 0.5s;
+        }
+
+        .content:hover img {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+        }
+
+    #circle {
+        position: relative;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+    }
+
+    .menu li {
+        cursor: pointer;
+        list-style-type: none;
+    }
+
+    .column {
+        width: 15px;
+        display: inline-block;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: transform 0.5s;
+    }
+
+        .column div:hover {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+            transition: transform 0.5s;
+        }
+</style>
+
+<div class="container con" >
+    <div class="row" >
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6" style="padding-right:0px;">
+            <div class="rich-text-block">
+                <h1>Biz kimiz?</h1>
+                <p>
+                    En iyiye, en sağlıklıya ve en lezzetliye ulaşma çabamızın titiz birer ürünü olan eşsiz
+                    lezzetlerimizle tanışmaya hoş geldiniz.
+                </p>
+                <p>
+                    Anadolu’nun kültürel zenginliğini yansıtan çok farklı tatlar ve çeşitlerle dolu bir mutfağın izindeki özgün yemeklerimizi;
+                    özenle seçtiğimiz en doğal malzemeler, geleneksel tarifler ve pişirme yöntemlerine sadık kalarak hazırlıyor,
+                    gönül rahatlığıyla tadabilmeniz için sizlerle buluşturuyoruz.
+                </p>
+                <p>
+                    Kullandığımız malzemelerde sağlığınızı her zaman ön planda tutuyor; yeni hasatları, taptaze sebzeleri,
+                    doğal ortamında yetişen hayvanlardan elde edilen en iyi etleri, tarlasından toplayıp yöresinden bulup getirdiğimiz ürünleri,
+                    usta şeflerimizin hünerli ellerinde  hayat bulan lezzetlere dönüştürüyoruz.
+                </p>
+                <p>
+                    Sunduğumuz her bir lezzet tanesi için verdiğimiz büyük emeğin karşılığını
+                    memnuniyetinizle almanın mutluluğunu  yaşayacağımız bu çok özel lezzet yolculuğunda,
+                    sizleri geleneksel konukseverliğimizle ağırlamaktan mutluluk duyuyoruz.
+                </p>
+                <p>Afiyet olsun.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu">
+
+    <div class="content" style="margin-top: 100px;">
+        <a href="https://www.facebook.com/">
+            <span>Facebook</span>
+            <img src="https://image.flaticon.com/icons/png/512/2111/2111392.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+
+    <div class="content">
+        <a href="https://www.instagram.com/">
+            <span>İnstagram</span>
+            <img src="https://image.flaticon.com/icons/png/512/1384/1384031.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.twitter.com/">
+            <span>Twitter</span>
+            <img src="https://image.flaticon.com/icons/png/512/3128/3128212.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.youtube.com/">
+            <span>Youtube</span>
+            <img src="https://image.flaticon.com/icons/png/512/2190/2190466.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+</div>

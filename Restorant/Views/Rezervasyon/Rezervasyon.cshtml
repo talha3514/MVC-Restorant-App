@@ -1,0 +1,92 @@
+﻿@model List<Restorant.Models.kullanicilar>
+
+@{
+    ViewBag.Title = "Rezervasyon";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ Random sayi = new Random();}
+
+<style>
+    body {
+        background-image: url("/Resimler/bg2.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+</style>
+
+<div class="container body-content">
+
+    @using (Html.BeginForm("Rezervasyon", "Rezervasyon", FormMethod.Post))
+    {
+        <input type="hidden" id="custId" name="kullanici_id" value=@Model.Where(x => x.kullanici_adi == User.Identity.Name).FirstOrDefault().kullanici_id>
+        <input type="hidden" id="custId" name="masa_id" value=@sayi.Next(1,6)>
+        <div class="shadow-lg p-3 my-5 bg-white rounded w-50">
+            <p class="fw-bold h1 mx-2"> REZERVASYON</p>
+            <div class="row m-auto">
+                <div class="col-sm-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Saat</span>
+                    </div>
+                    <input type="time" class="form-control" name="rezervasyon_saati" placeholder="Username">
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Tarih</span>
+                    </div>
+                    <input type="date" class="form-control" name="rezervasyon_tarihi" placeholder="Username">
+                </div>
+            </div>
+            <div class="row m-auto mt-2">
+                <div class="col-sm-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Kişi Sayısı</span>
+                    </div>
+                    <select class="form-select" name="kişi_sayisi">
+                        <option selected>Kişi Sayısı</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row m-auto mt-2">
+                <div class="col-sm-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">İsim</span>
+                    </div>
+                    <input type="text" class="form-control" name="musteri_adi" placeholder="İsim">
+                </div>
+                <div class="col-sm-6">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Soyisim</span>
+                    </div>
+                    <input type="text" class="form-control" name="musteri_soyadi" placeholder="Soyisim">
+                </div>
+            </div>
+            <div class="row m-auto mt-2">
+                <div class="col-sm-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">E-mail</span>
+                    </div>
+                    <input type="text" class="form-control" name="musteri_email" placeholder="E-mail">
+                </div>
+            </div>
+            <div class="row m-auto mt-2">
+                <div class="col-sm-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Telefon Numarası</span>
+                    </div>
+                    <input type="text" class="form-control" name="musteri_tel" placeholder="Telefon Numarası">
+                </div>
+            </div>
+            <div class="row m-auto mt-4 px-2">
+                <button type="submit" class="btn btn-primary btn-lg btn-block button">Rezervasyon yap</button>
+            </div>
+        </div>
+
+    }
+</div>

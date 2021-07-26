@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Restorant.Models.yemekler>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Yemekler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Yemekler</h3>
+                </div>
+
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px;">#</th>
+                                <th>Yemek Adı</th>
+                                <th>Yemek Tarifi</th>
+                                <th>Yemek Fiyatı</th>
+                                <th>Yemek Kategorisi</th>
+                                <th style="width: 110px;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr class="fw-bold">
+
+                                    <td>@item.yemek_id</td>
+                                    <td>@item.yemek_adi</td>
+                                    <td>@item.yemek_tarifi</td>
+                                    <td>@item.yemek_fiyati</td>
+                                    <td>@item.kategori.kategori_adi</td>
+                                    <td>
+                                        @Html.ActionLink(" ", "YemeklerEdit", new { id = item.yemek_id }, new { @class = "bx bx-edit nav_icon", style = "font-size:1.5rem" })
+                                        @Html.ActionLink(" ", "YemeklerDelete", new { id = item.yemek_id }, new { @class = "bx bx-trash nav_icon", style = "font-size:1.5rem" })
+                                    </td>
+
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+                    @Html.ActionLink(" ", "YemeklerAdd", new { }, new { @class = "bx bx-plus nav_icon", style = "font-size:2rem" })
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Yemekler", new { page }))
+</div>

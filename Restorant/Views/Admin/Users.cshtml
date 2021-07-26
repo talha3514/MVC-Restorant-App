@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Restorant.Models.kullanicilar>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Kullanıcılar</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px;">Id</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Kullanıcı Şifre</th>
+                                <th style="width: 110px;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                if (item.rol_id == 2)
+                                {
+                                    <tr class="fw-bold">
+
+                                        <td>@item.kullanici_id</td>
+                                        <td>@item.kullanici_adi</td>
+                                        <td>@item.kullanici_sifre</td>
+                                        <td>
+                                            @Html.ActionLink(" ", "UsersEdit", new { id = item.kullanici_id }, new { @class = "bx bx-edit nav_icon" })
+                                            @Html.ActionLink(" ", "UsersDelete", new { id = item.kullanici_id }, new { @class = "bx bx-trash nav_icon" })
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Adminler</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px;">Id</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Kullanıcı Şifre</th>
+                                <th style="width: 110px;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                if (item.rol_id == 1)
+                                {
+                                    <tr class="fw-bold">
+
+                                        <td>@item.kullanici_id</td>
+                                        <td>@item.kullanici_adi</td>
+                                        <td>@item.kullanici_sifre</td>
+                                        <td>
+                                            @Html.ActionLink(" ", "UsersEdit", new { id = item.kullanici_id }, new { @class = "bx bx-edit nav_icon" })
+                                            @Html.ActionLink(" ", "UsersDelete", new { id = item.kullanici_id }, new { @class = "bx bx-trash nav_icon" })
+                                        </td>
+
+                                    </tr>
+                                }
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

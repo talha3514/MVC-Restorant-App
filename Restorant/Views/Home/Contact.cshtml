@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<style>
+    .product-label {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: Poppins, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .product-text {
+        font-family: Poppins, sans-serif;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+    }
+
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+
+    .menu {
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+        top: 40%;
+        text-align: right;
+        margin-right: 25px;
+        opacity: 1;
+    }
+
+    .content {
+        margin-top: 10px;
+    }
+
+        .content span {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .content:hover span {
+            opacity: 1;
+        }
+
+        .content img {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            transition: transform 0.5s;
+        }
+
+        .content:hover img {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+        }
+
+    #circle {
+        position: relative;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+    }
+
+    .menu li {
+        cursor: pointer;
+        list-style-type: none;
+    }
+
+    .column {
+        width: 15px;
+        display: inline-block;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: transform 0.5s;
+    }
+
+        .column div:hover {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+            transition: transform 0.5s;
+        }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/Resimler/bg4.jpg" width="100%" />
+        </div>
+        <div class="col-md-6 product-label">
+            <div>
+                Yöresel yemek restorant<br />
+                İstanbul
+            </div>
+            <div class="product-text">
+                <br /><strong>Adres:</strong>İstanbul Mahallesi, İstanbul Cad.<br /> No:000<br />İstanbul/Türkiye<br />34000<br /><br />
+                <strong>E-posta:</strong>info@mail.com<br /><br />
+                <strong>Telefon-no:</strong>+90 011 222 3344<br /><br />
+                <strong>Çalışma saatleri:</strong>Hafta içi 10:00 - 23:00<br />Hafta sonu Pazar günleri kapalı
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="menu">
+
+    <div class="content" style="margin-top: 100px;">
+        <a href="https://www.facebook.com/">
+            <span>Facebook</span>
+            <img src="https://image.flaticon.com/icons/png/512/2111/2111392.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+
+    <div class="content">
+        <a href="https://www.instagram.com/">
+            <span>İnstagram</span>
+            <img src="https://image.flaticon.com/icons/png/512/1384/1384031.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.twitter.com/">
+            <span>Twitter</span>
+            <img src="https://image.flaticon.com/icons/png/512/3128/3128212.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.youtube.com/">
+            <span>Youtube</span>
+            <img src="https://image.flaticon.com/icons/png/512/2190/2190466.png" alt="" width="30px" height="30px">
+        </a>
+    </div>
+</div>
+
+

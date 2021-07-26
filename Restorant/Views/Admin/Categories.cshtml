@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Restorant.Models.kategori>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Kategoriler</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px;">#</th>
+                                <th>Kategori Adı</th>
+                                <th>Kategori Acıklama</th>
+                                <th style="width: 110px;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr class="fw-bold">
+
+                                    <td>@item.kategori_id</td>
+                                    <td>@item.kategori_adi</td>
+                                    <td>@item.kategori_aciklama</td>
+                                    <td>
+                                        @Html.ActionLink(" ", "CategoriesEdit", new { id = item.kategori_id }, new { @class = "bx bx-edit nav_icon", style = "font-size:1.5rem" })
+                                        @Html.ActionLink(" ", "CategoriesDelete", new { id = item.kategori_id }, new { @class = "bx bx-trash nav_icon", style = "font-size:1.5rem" })
+                                    </td>
+
+                                </tr>
+
+                            }
+                        </tbody>
+
+                    </table>
+                    @Html.ActionLink(" ", "CategoriesAdd", new {  }, new { @class = "bx bx-plus nav_icon", style="font-size:2rem" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

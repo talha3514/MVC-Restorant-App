@@ -1,0 +1,58 @@
+﻿@model Restorant.Models.rezervasyon
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@Model.rezervasyon_id Numaralı Rezervasyon Detayı</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                
+                                <th>Müşteri Adı</th>
+                                <th>Müşteri Soyadı</th>
+                                <th>Rezervasyon Tarihi</th>
+                                <th>Rezervasyon Saati</th>
+                                <th>Kişi Sayısı</th>
+                                <th>E-posta</th>
+                                <th>Telefon Numarası</th>
+                                <th>Kullanıcı Adı</th>
+                                <th style="width: 110px;">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fw-bold">
+                                <td>@Model.musteri_adi</td>
+                                <td>@Model.musteri_soyadi</td>
+                                <td>@Model.rezervasyon_tarihi.ToString("dd/MMM/yyyy")</td>
+                                <td>@Model.rezervasyon_saati</td>
+                                <td>@Model.kişi_sayisi</td>
+                                <td>@Model.musteri_email</td>
+                                <td>@Model.musteri_tel</td>
+                                <td>@Model.kullanicilar.kullanici_adi</td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = Model.rezervasyon_id }, new { @class = "bx bx-edit nav_icon" })
+                                    @Html.ActionLink(" ", "Delete", new { id = Model.rezervasyon_id }, new { @class = "bx bx-trash nav_icon" })
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-app" href="~/Admin/Admin">
+                        <i class="bx bx-home nav_icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

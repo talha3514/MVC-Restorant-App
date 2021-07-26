@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Restorant.Models.yemekler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+
+    .menu {
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+        top: 40%;
+        text-align: right;
+        margin-right: 25px;
+        opacity: 1;
+    }
+
+    .content {
+        margin-top: 10px;
+    }
+
+        .content span {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .content:hover span {
+            opacity: 1;
+        }
+
+        .content img {
+            transform: matrix(1, 0, 0, 1, 0, 0);
+            transition: transform 0.5s;
+        }
+
+        .content:hover img {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+        }
+
+    #circle {
+        position: relative;
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+    }
+
+    .menu li {
+        cursor: pointer;
+        list-style-type: none;
+    }
+
+    .column {
+        width: 15px;
+        display: inline-block;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: transform 0.5s;
+    }
+
+        .column div:hover {
+            transform: matrix(0.6, 0, 0, 0.6, 0, 0);
+            transition: transform 0.5s;
+        }
+</style>
+<br />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Select(x => x.kategori.kategori_adi).Distinct())
+        {
+            <div class="col-4 mx-auto">
+                <a href="#@item">
+                    <div class="card border-0 text-center">
+                        <div class="card-body">
+                            <img class="card-img-top" src="~/Resimler/@item/1.jpg" style="width: 300px; height: 300px; border-radius: 8px;">
+                            <h5 class="card-title mt-4"> @Html.DisplayFor(modelItem => item)</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@foreach (var kategori in Model.Select(x => x.kategori.kategori_adi).Distinct())
+{
+
+    <div class="row ">
+        <div  class="container bg-image" style="padding-bottom: 400px; padding-top:200px;">
+            <div class="container shadow">
+                <div id="@kategori"  class="row">
+                    <div class="col px-5 pt-5 mx-3">
+                        <div class="card border-0 ">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase">@kategori</h5>
+                                <p class="card-text">@Model.Where(x => x.kategori.kategori_adi == kategori).Select(x => x.kategori.kategori_aciklama).FirstOrDefault()</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class="row shadow mt-3">
+
+                    @foreach (var item in Model.Where(x => x.kategori.kategori_adi == kategori))
+                    {
+                        <div class="col-md-5 mx-auto my-3">
+                            <div class="card border-0" style="width: 100%; height: 150px;">
+                                <div class="card-body">
+                                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.yemek_adi)</h5>
+                                    <p class="card-text">
+                                        @Html.DisplayFor(modelItem => item.yemek_tarifi)
+                                    </p>
+                                </div>
+                                <div class="card-footer bg-transparent" style="font-weight: bold; text-align: right;">
+                                    @Html.DisplayFor(modelItem => item.yemek_fiyati)₺
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+}
+<div class="menu">
+
+    <div class="content" style="margin-top: 100px;">
+        <a href="https://www.facebook.com/">
+            <span>Facebook</span>
+            <img src="https://image.flaticon.com/icons/png/512/2111/2111392.png" width="30px" height="30px">
+        </a>
+    </div>
+
+    <div class="content">
+        <a href="https://www.instagram.com/">
+            <span>İnstagram</span>
+            <img src="https://image.flaticon.com/icons/png/512/1384/1384031.png" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.twitter.com/">
+            <span>Twitter</span>
+            <img src="https://image.flaticon.com/icons/png/512/3128/3128212.png" width="30px" height="30px">
+        </a>
+    </div>
+    <div class="content">
+        <a href="https://www.youtube.com/">
+            <span>Youtube</span>
+            <img src="https://image.flaticon.com/icons/png/512/2190/2190466.png" width="30px" height="30px">
+        </a>
+    </div>
+</div>
+
+<button type="button"
+        class="btn btn-danger btn-floating btn-lg rounded-circle"
+        id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>

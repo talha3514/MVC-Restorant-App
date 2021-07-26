@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+            a:hover {
+                text-decoration: none;
+                color: black;
+            }
+
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-brand mb-0 h1" href="#">
+                <img src="https://image.flaticon.com/icons/png/512/4900/4900651.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                @Html.ActionLink("Restorant", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="" style="float:left">
+                <ul class="list-group list-group-horizontal ">
+                    <li class="list-group-item bg-dark text-white">@Html.ActionLink("Ana sayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="list-group-item bg-dark text-white">@Html.ActionLink("Menü", "Index", "Yemek", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="list-group-item bg-dark text-white">@Html.ActionLink("Biz kimiz?", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li class="list-group-item bg-dark text-white">@Html.ActionLink("İletişim", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.Identity.Name == "admin")
+                        {
+                            <li class="list-group-item bg-dark text-white">
+                                <a href="~/Admin/Admin" class="navbar-brand text-capitalize">
+                                    @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")
+                                </a>
+                            </li>
+                            <li class="list-group-item bg-dark text-white">@Html.ActionLink("Çıkış", "SignOut", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        }
+                        else
+                        {
+                            <li class="list-group-item bg-dark text-white">@Html.ActionLink("Rezervasyon", "Rezervasyon", "Rezervasyon", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li class="list-group-item bg-dark text-white">@Html.ActionLink("Çıkış", "SignOut", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        }
+
+
+                    }
+                    else
+                    {
+                        <li class="list-group-item bg-dark text-white">@Html.ActionLink("Giriş", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    @RenderBody()
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/Scripts/backtotop.js"></script>
+    <script src="https://kit.fontawesome.com/fd96d0b3d4.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</body>
+</html>

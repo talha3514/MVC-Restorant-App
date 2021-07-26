@@ -1,0 +1,54 @@
+﻿@*@model List<Restorant.Models.rezervasyon>*@
+@model IEnumerable<Restorant.Models.rezervasyon>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Rezervasyon Tablosu</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px;">Id</th>
+                                <th>Müşteri Adı</th>
+                                <th>Müşteri Soyadı</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Rezervasyon Tarihi</th>
+                                <th style="width: 110px;">Detaylar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="fw-bold">
+
+                                    <td>@item.rezervasyon_id</td>
+                                    <td>@item.musteri_adi</td>
+                                    <td>@item.musteri_soyadi</td>
+                                    <td>@item.kullanicilar.kullanici_adi</td>
+                                    <td>@item.rezervasyon_tarihi.ToString("dd/MMM/yyyy")</td>
+                                    <td>
+                                        @Html.ActionLink(" ", "Detail", new { id = item.rezervasyon_id }, new { @class = "bx bx-search nav_icon" })
+                                        @Html.ActionLink(" ", "Delete", new { id = item.rezervasyon_id }, new { @class = "bx bx-trash nav_icon" })
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Admin", new { page }))
+</div>

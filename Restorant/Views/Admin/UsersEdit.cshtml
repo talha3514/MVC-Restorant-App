@@ -1,0 +1,45 @@
+﻿@model Restorant.Models.kullanicilar
+
+@{
+    ViewBag.Title = "UsersEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <h2>Kullanıcıyı Düzenle</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.kullanici_id)
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 10px;">Id</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Kullanıcı Şifre</th>
+                    <th>Roller</th>
+                    <th style="width: 110px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fw-bold">
+
+                    <td>@Model.kullanici_id</td>
+                    <td>@Html.TextBoxFor(x => x.kullanici_adi, new { @class = "form-control" })</td>
+                    <td>@Html.TextBoxFor(x => x.kullanici_sifre, new { @class = "form-control" })</td>
+                    <td>
+                        <select class="form-select" name="rol_id">
+                            <option value="2" selected>Kullanıcı</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" class="bx bx-check border-0" style="font-size:2rem; background-color:white;"></button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

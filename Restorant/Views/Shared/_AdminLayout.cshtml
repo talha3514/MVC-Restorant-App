@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        a {
+            text-decoration: none
+        }
+
+        .l-navbar {
+            position: fixed;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #212529;
+            z-index: 1;
+        }
+
+        .nav {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .nav_logo,
+        .nav_link {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            column-gap: 1rem;
+            padding: .5rem 0 .5rem 1.5rem;
+        }
+
+        .nav_logo {
+            margin-bottom: 2rem;
+        }
+
+        .nav_logo-icon {
+            font-size: 1.25rem;
+            color: #F7F6FB;
+        }
+
+        .nav_logo-name {
+            color: #F7F6FB;
+            font-weight: 700;
+        }
+
+        .nav_link {
+            position: relative;
+            color: #AFA5D9;
+            margin-bottom: 1.5rem;
+            transition: .3s;
+        }
+
+            .nav_link:hover {
+                color: #F7F6FB;
+            }
+
+        .nav_icon {
+            font-size: 1.25rem;
+        }
+
+        .active {
+            color: #F7F6FB;
+        }
+
+            .active::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 2px;
+                height: 32px;
+                background-color: #F7F6FB;
+            }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">Admin Paneli</span>
+                </a>
+                <div class="nav_list">
+                    <a href="~/Admin/Admin" class="nav_link">
+                        <i class='bx bx-calendar nav_icon'></i>
+                        <span class="nav_name">Rezervasyonlar</span>
+                    </a>
+                    <a href="~/Admin/Users" class="nav_link">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Kullanıcılar</span>
+                    </a>
+                    <a href="~/Admin/Categories" class="nav_link">
+                        <i class='bx bx-category nav_icon'></i>
+                        <span class="nav_name">Yemek kategorileri</span>
+                    </a>
+                    <a href="~/Admin/Yemekler" class="nav_link">
+                        <i class='bx bx-food-menu nav_icon'></i>
+                        <span class="nav_name">Yemekler</span>
+                    </a>
+
+                </div>
+            </div>
+
+            @Html.ActionLink("Çıkış", "SignOut", "Home", new { area = "" }, new { @class = "nav_name bx bx-log-out nav_icon nav_link" })
+        </nav>
+    </div>
+    <div id="main">
+        @RenderBody()
+    </div>
+    <script src="https://kit.fontawesome.com/fd96d0b3d4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@model Restorant.Models.kullanicilar
+
+@{
+    ViewBag.Title = "Creat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background-image: url("/Resimler/bg2.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .con {
+        margin-top: 200px;
+    }
+</style>
+
+
+@using (Html.BeginForm("Creat", "Home", FormMethod.Post)) 
+{
+    
+    @Html.AntiForgeryToken()
+    <input type="hidden" id="custId" name="rol_id" value="2">
+    <div class="container">
+        <div class="shadow-lg p-3 bg-white rounded w-50 con">
+            <p class="fw-bold h1 mx-2"> Üye olun</p>
+            <div class="row m-auto">
+                <div class="col-sm-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Kullanıcı Adı</span>
+                    </div>
+                    <input type="text" class="form-control" name="kullanici_adi" placeholder="Username">
+                </div>
+            </div>
+            <div class="row m-auto">
+                <div class="col-sm-12">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text  bg-body border-0 fw-bold" id="basic-addon1">Şifre</span>
+                    </div>
+                    <input type="password" class="form-control" name="kullanici_sifre" placeholder="Username">
+                </div>
+            </div>
+            <div class="row m-auto mt-4 px-2">
+                <button type="submit" class="btn btn-primary btn-lg btn-block button">Üye ol</button>
+            </div>
+        </div>
+    </div>
+}
+

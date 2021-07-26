@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79a6ea4f0146454a8fd9ed75b330df29" Name="Diagram1">
+        <EntityTypeShape EntityType="RestorantModel.kategori" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestorantModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestorantModel.yemekler" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="RestorantModel.FK_yemekler_kategori" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RestorantModel.masalar" Width="1.5" PointX="5.625" PointY="2.375" />
+        <EntityTypeShape EntityType="RestorantModel.roller" Width="1.5" PointX="3.375" PointY="5.375" />
+        <EntityTypeShape EntityType="RestorantModel.rezervasyon" Width="1.5" PointX="7.875" PointY="3.125" />
+        <AssociationConnector Association="RestorantModel.FK_rezervasyon_masalar" />
+        <EntityTypeShape EntityType="RestorantModel.kullanicilar" Width="1.5" PointX="5.625" PointY="5.125" />
+        <AssociationConnector Association="RestorantModel.FK_kullanicilar_roller" />
+        <AssociationConnector Association="RestorantModel.FK_rezervasyon_kullanicilar" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

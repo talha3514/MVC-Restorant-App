@@ -1,0 +1,41 @@
+﻿@model Restorant.Models.kategori
+
+@{
+    ViewBag.Title = "CategoriesAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="container">
+    <h2>Yeni Kategori Ekle</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.kategori_id)
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Kategori Adı</th>
+                    <th>Katetgori Acıklama</th>
+
+                    <th style="width: 110px;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="fw-bold">
+
+
+                    <td>@Html.TextBoxFor(x => x.kategori_adi, new { @class = "form-control" })</td>
+                    <td>@Html.TextAreaFor(x => x.kategori_aciklama, new { @class = "form-control" })</td>
+
+                    <td>
+                        <button type="submit" class="bx bx-check border-0" style="font-size:2rem; background-color:white;"></button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>
